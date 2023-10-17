@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="EI=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="style.css">
+
+    <!------------------------------------- Box Icons ----------------------------------->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <!-------------------------------- Header Kezdete ---------------------------------->
+
+    <header class="header">
+        <a href="index.html" class="logo">Mark.<span class="animate" style="--i:1;"></span></a>
+
+        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+
+        <nav class="navbar" >
+            <a href="#about-more" class="active">About</a>
+            <a href="#contact">Contact</a>
+
+            <span class="active-nav"></span>
+            <span class="animate" style="--i:2;"></span>
+        </nav>
+    </header>
+
+
+    <!--------------------------------- About Section -------------------------------->
+
+    <section class="about-more show-animate" id="about-more">
+        <h2 class="heading">About <span>Me</span><span class="animate scroll" style="--i:2;"></span></h2>
+
+        <div class="about-img">
+            <img src="home-img.png" alt="">
+            <span class="circle-spin-more"></span><span class="animate scroll" style="--i:3;"></span>
+
+        </div>
+
+        <div class="about-content">
+            <h3>Frontend Developer!<span class="animate scroll" style="--i:4;"></span></h3>
+            <p>I am Mark Gor, a dedicated Full-stack Developer who finds immense joy in every aspect of my work. 
+                In the world of web development, I've embarked on an exhilarating journey, diving headfirst into the freelancing world on Fiverr. Since June 2023, I've been immersed in the dynamic realm of Full-Stack Web Development, both as a service provider and a client. The diversity of projects I've encountered has been enlightening, exposing me to a wide spectrum of challenges and opportunities for creative problem-solving.
+                
+                One of my standout skills is not just writing code but also designing exceptional digital experiences. A testament to this is my work on projects such as Cafe Monte (www.cafemonte.hu), where I not only designed the website but also handled the front-end development. Another notable endeavor is Alfageneral UK (www.alfageneral.co.uk), for which I provided comprehensive full-stack development services, showcasing my adaptability and proficiency in the field of web development.
+                
+                My journey then led me to SONEAS Chemicals Ltd., where I took on the role of a device operator and shift manager. Over nearly six years, I honed my skills in coordinating shifts, engaging with management, and ensuring the seamless operation of various chemical industry technologies and GMP processes. From overseeing reactors to managing vacuum machines, I've acquired a profound understanding of the equipment involved in chemical production. My responsibilities extended to maintaining meticulous documentation, keeping device logs, and preparing shift reports.
+                
+                To complement my hands-on experience, I've built a solid educational foundation. I hold a degree in Chemical Technician and Chemistry from János Irinyi Vocational Secondary School and College (2013-2015)
+                
+                Furthermore, I haven't just stopped at learning; I've earned multiple certifications in programming languages, including Python, Java, HTML, CSS, JavaScript, and PHP. My dedication to continuous learning underscores my commitment to staying at the forefront of the ever-evolving world of web development and programming.
+                
+                In addition to my technical skills, I take immense pride in my expertise in Good Manufacturing Practice (GMP), ensuring that the work I deliver adheres to the highest quality standards.
+                
+                If you're in need of a passionate Full-stack Developer who can transition seamlessly between design and development, while also bringing a wealth of experience from the chemical industry, I am the professional you've been looking for.<span class="animate scroll" style="--i:5;"></span></p>
+
+            <div class="btn-box btns" id="btns-more">
+                <a href="index.html" class="btn">Home</a>
+                <span class="animate scroll" style="--i:6;"></span>
+            </div>
+        </div>
+    </section>
+
+    <style>
+       
+    </style>
+
+    <!------------------------- Contact Section -------------------------------->
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span><span class="animate scroll" style="--i:1;"></span></h2>
+
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="text" placeholder="Full Name" required>
+                    <span class="focus"></span>
+                    <span class="animate scroll" style="--i:2;"></span>
+                </div>
+                <div class="input-field">
+                    <input type="email" placeholder="Email Adress" required>
+                    <span class="focus"></span>
+                    <span class="animate scroll" style="--i:3;"></span>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    <input type="number" placeholder="Mobile Number" required>
+                    <span class="focus"></span>
+                    <span class="animate scroll" style="--i:2;"></span>
+                </div>
+                <div class="input-field">
+                    <input type="text" placeholder="Email Subject" required>
+                    <span class="focus"></span>
+                    <span class="animate scroll" style="--i:3;"></span>
+                </div>
+            </div>
+
+            <div class="textarea-field">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <span class="focus"></span>
+                <span class="animate scroll" style="--i:2;"></span>
+            </div>
+
+            <div class="btn-box btns">
+                <button type="submit" class="btn">Submit</button>
+                <span class="animate scroll" style="--i:4;"></span>
+            </div>
+        </form>
+    </section>
+
+    <!------------------------------- Footer ----------------------------------->
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Mark Gor | All Rights Reserved.</p>
+
+            <span class="animate2 scroll" style="--i:1;"></span>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+
+            <span class="animate2 scroll" style="--i:3;"></span>
+        </div>
+    </footer>
+
+
+
+    <!-- Linkek Jquery és bootstrap4 MixItUp -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+    <script>
+        var mixer = mixitup('.consts');
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js" integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
