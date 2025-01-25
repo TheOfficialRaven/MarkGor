@@ -991,7 +991,7 @@ span {
 
 @media (max-width: 991px) {
     .header {
-        padding: 2rem 4%;
+        padding: 2rem 7%;
     }
 
     section {
@@ -999,7 +999,7 @@ span {
     }
 
     .home {
-        padding: 0 4%;
+        padding: 0 6%;
     }
 
     .footer {
@@ -1011,6 +1011,10 @@ span {
 @media (max-width: 768px) {
     .header {
         background: var(--bg-color);
+    }
+
+    .toggle-container {
+        right:10rem;
     }
 
     #menu-icon {
