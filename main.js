@@ -9,18 +9,19 @@ menuIcon.onclick = () => {
 
 // toggle slider
 
-const themeSlider = document.getElementById('theme-slider');
-const body = document.body;
+const lampToggle = document.getElementById('lamp-toggle');
+    const body = document.body;
 
-themeSlider.addEventListener('click', () => {
-  if (body.getAttribute('data-theme') === 'dark') {
-    body.setAttribute('data-theme', 'light');
-    themeSlider.classList.add('active');
-  } else {
-    body.setAttribute('data-theme', 'dark');
-    themeSlider.classList.remove('active');
-  }
-});
+    // Ensure the initial state matches the theme
+    if (body.getAttribute('data-theme') === 'dark') {
+      lampToggle.classList.add('active');
+    }
+
+    lampToggle.addEventListener('click', () => {
+      const isDarkMode = body.getAttribute('data-theme') === 'dark';
+      body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+      lampToggle.classList.toggle('active', !isDarkMode);
+    });
 
 
 //Scroll Section
