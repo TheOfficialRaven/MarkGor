@@ -1,6 +1,6 @@
 // toggle icon navbar
-let themeSlider = document.getElementById('theme-slider');
-let body = document.body;
+const themeSlider = document.getElementById('theme-slider');
+const body = document.body;
 
 // Szinkronizáljuk a kezdeti állapotot az active osztállyal
 if (body.getAttribute('data-theme') === 'light') {
@@ -8,14 +8,14 @@ if (body.getAttribute('data-theme') === 'light') {
 }
 
 themeSlider.addEventListener('click', () => {
-  let isDarkMode = body.getAttribute('data-theme') === 'dark';
+  const isDarkMode = body.getAttribute('data-theme') === 'dark';
   body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
   themeSlider.classList.toggle('active', !isDarkMode);
 });
 
 //toggle slidebar
-let themeSlider = document.getElementById('theme-slider');
-    let body = document.body;
+const themeSlider = document.getElementById('theme-slider');
+    const body = document.body;
 
     themeSlider.addEventListener('click', () => {
       if (body.getAttribute('data-theme') === 'dark') {
