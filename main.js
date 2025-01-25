@@ -7,6 +7,19 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 };
 
+//toggle slidebar
+const themeSlider = document.getElementById('theme-slider');
+    const body = document.body;
+
+    themeSlider.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        themeSlider.classList.add('active');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeSlider.classList.remove('active');
+      }
+    });
 
 //Scroll Section
 let sections = document.querySelectorAll('section');
