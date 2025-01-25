@@ -15,10 +15,10 @@
 }
 
 :root {
-    --bg-color: #2C2F33;
-    --second-bg-color: #23272A;
+    --bg-color: #23272A;
+    --second-bg-color: #2C2F33;
     --text-color: #EAEAEA;
-    --main-color: #1A535C;
+    --main-color: #26929E;
 }
 
 html {
