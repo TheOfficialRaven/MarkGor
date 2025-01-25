@@ -40,46 +40,46 @@ body {
 
 }
 
-
-    /************************* Slider Toggle *************************/
-    .toggle-container {
-      position: fixed;
-      top: 1rem;
-      right: 2rem;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: var(--text-color);
-    }
-    .toggle-slider {
-      position: relative;
-      width: 60px;
-      height: 30px;
-      background: var(--second-bg-color);
-      border-radius: 15px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .toggle-slider::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 5px;
-      width: 20px;
-      height: 20px;
-      background: var(--main-color);
-      border-radius: 50%;
-      transform: translateY(-50%);
-      transition: left 0.3s ease;
-    }
-    .toggle-slider.active {
-      background: var(--main-color);
-    }
-    .toggle-slider.active::before {
-      left: 35px;
-      background: var(--accent-color);
-    }
+ /************************* Slider Toggle *************************/
+ .toggle-container {
+    position: fixed;
+    padding: 1.6rem 2%;
+    top: 1rem;
+    right: 2rem;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-color);
+  }
+  .toggle-slider {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: var(--second-bg-color);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .toggle-slider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--main-color);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+  }
+  .toggle-slider.active {
+    background: var(--main-color);
+  }
+  .toggle-slider.active::before {
+    left: 35px;
+    background: var(--accent-color);
+  }
 
 /************************* Header **********************/
 
@@ -415,7 +415,6 @@ section {
     width: 200px;
     border-radius: 50%;
     border: .2rem solid var(--main-color);
-    filter: brightness(0.9) contrast(1.2) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
 .about-img {
