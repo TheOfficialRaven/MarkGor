@@ -1,6 +1,11 @@
 // toggle icon navbar
-const themeSlider = document.getElementById('theme-slider');
-const body = document.body;
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
 
 // Szinkronizáljuk a kezdeti állapotot az active osztállyal
 if (body.getAttribute('data-theme') === 'light') {
@@ -14,7 +19,7 @@ themeSlider.addEventListener('click', () => {
 });
 
 //toggle slidebar
-const themeSlider = document.getElementById('theme-slider');
+ const themeSlider = document.getElementById('theme-slider');
     const body = document.body;
 
     themeSlider.addEventListener('click', () => {
