@@ -7,30 +7,6 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 };
 
-// Szinkronizáljuk a kezdeti állapotot az active osztállyal
-if (body.getAttribute('data-theme') === 'light') {
-  themeSlider.classList.add('active');
-}
-
-themeSlider.addEventListener('click', () => {
-  const isDarkMode = body.getAttribute('data-theme') === 'dark';
-  body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
-  themeSlider.classList.toggle('active', !isDarkMode);
-});
-
-//toggle slidebar
- const themeSlider = document.getElementById('theme-slider');
-    const body = document.body;
-
-    themeSlider.addEventListener('click', () => {
-      if (body.getAttribute('data-theme') === 'dark') {
-        body.setAttribute('data-theme', 'light');
-        themeSlider.classList.add('active');
-      } else {
-        body.setAttribute('data-theme', 'dark');
-        themeSlider.classList.remove('active');
-      }
-    });
 
 //Scroll Section
 let sections = document.querySelectorAll('section');
