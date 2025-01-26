@@ -16,9 +16,9 @@ const homeImg = document.querySelector('.home-img img');
 // Ensure the initial state matches the theme
 if (body.getAttribute('data-theme') === 'dark') {
   lampToggle.classList.add('active');
-  homeImg.src = '/dark.webp';
+  homeImg.src = '/dark.png';
 } else {
-  homeImg.src = '/light.webp';
+  homeImg.src = '/light.png';
 }
 
 lampToggle.addEventListener('click', () => {
@@ -33,8 +33,8 @@ lampToggle.addEventListener('click', () => {
   setTimeout(() => {
     // Switch the image source
     homeImg.src = isDarkMode
-      ? '/light.webp'
-      : '/dark.webp';
+      ? '/light.png'
+      : '/dark.png';
 
     // Add fade-in animation
     homeImg.classList.remove('fade-out');
