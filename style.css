@@ -394,7 +394,6 @@ section {
     display: flex;
     justify-content: center; 
     align-items: center;
-    padding-left: 15rem;
   }
   
   .home-img img {
@@ -1153,6 +1152,10 @@ span {
     .navbar.active a {
         transform: translateX(0);
         transition-delay: .25s;
+    }
+  
+    .home-img {
+      display: none;
     }
 
     .home-imgHover {
