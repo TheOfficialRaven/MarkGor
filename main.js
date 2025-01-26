@@ -10,18 +10,47 @@ menuIcon.onclick = () => {
 // toggle slider
 
 const lampToggle = document.getElementById('lamp-toggle');
-    const body = document.body;
+const body = document.body;
+const homeImg = document.querySelector('.home-img img');
 
-    // Ensure the initial state matches the theme
-    if (body.getAttribute('data-theme') === 'dark') {
-      lampToggle.classList.add('active');
-    }
+// Ensure the initial state matches the theme
+if (body.getAttribute('data-theme') === 'dark') {
+  lampToggle.classList.add('active');
+  homeImg.src = '/dark.webp';
+} else {
+  homeImg.src = '/light.webp';
+}
 
-    lampToggle.addEventListener('click', () => {
-      const isDarkMode = body.getAttribute('data-theme') === 'dark';
-      body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
-      lampToggle.classList.toggle('active', !isDarkMode);
-    });
+lampToggle.addEventListener('click', () => {
+  const isDarkMode = body.getAttribute('data-theme') === 'dark';
+  body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+  lampToggle.classList.toggle('active', !isDarkMode);
+
+  // Add fade-out animation
+  homeImg.classList.remove('fade-in');
+  homeImg.classList.add('fade-out');
+
+  setTimeout(() => {
+    // Switch the image source
+    homeImg.src = isDarkMode
+      ? '/light.webp'
+      : '/dark.webp';
+
+    // Add fade-in animation
+    homeImg.classList.remove('fade-out');
+    homeImg.classList.add('fade-in');
+
+    // Update the theme attribute
+    body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+  }, 200); // Match the duration of the fade-out animation
+});
+
+
+
+  
+
+
+  
 
 
 //Scroll Section
@@ -66,3 +95,45 @@ let footer = document.querySelector('footer');
 window.addEventListener('scroll', function() {
   footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
 });
+
+// Language Change
+
+const translations = {
+    en: {
+      'about': 'About',
+      'journey': 'Journey',
+      'skills': 'Skills',
+      'contact': 'Contact',
+      'Hi': 'Hi, i am',
+      'name': 'Mark Gor',
+      
+    },
+    hu: {
+      'about': 'Rólam',
+      'journey': 'Utazásom',
+      'skills': 'Tudásom',
+      'contact': 'Kontakt',
+      'Hi': 'Szia, a nevem',
+      'name': 'Gór Márk',
+    },
+    de: {
+      'about': 'Über',
+      'journey': 'Reise',
+      'skills': 'Fähigkeiten',
+      'contact': 'Kontakt',
+    }
+  };
+
+  function changeLanguage(lang) {
+    document.querySelectorAll('.language-selector button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.getElementById(`btn-${lang}`).classList.add('active');
+
+    Object.keys(translations[lang]).forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = translations[lang][id];
+      }
+    });
+  }

@@ -78,7 +78,7 @@ body {
   .toggle-lamp.active::after {
     content: '\1F319'; /* Hold */
     transform: rotate(360deg);
-    color: var(--accent-color);
+    color: var(--main-color);
     transition: transform 0.5s ease, color 0.5s ease;
   }
 
@@ -87,6 +87,45 @@ body {
     font-size: 1.4rem;
     color: var(--text-color);
   }
+
+  /********************* Language Selector Beépíthető ***************/
+ /** 
+  .language-selector {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 15%;
+    background: #37474f;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .language-selector button {
+    border: none;
+    background: none;
+    color: #e0f7fa;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .language-selector button.active {
+    background-color: #26c6da;
+    color: #2c2c2c;
+  }
+
+  .language-selector button:hover {
+    background-color: #e0f7fa;
+    color: #2c2c2c;
+  }
+    **/
 
 /************************* Header **********************/
 
@@ -349,6 +388,36 @@ section {
 .home-sci a:hover::before {
     width: 100%;
 }
+
+.home-img {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-left: 15rem;
+  }
+  
+  .home-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 50%;
+    border: .3rem solid var(--main-color);
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .home-img img.fade-out {
+    opacity: 0;
+  }
+  
+  .home-img img.fade-in {
+    opacity: 1;
+  }
+
+  .home-img img.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 
 
 .home-imgHover {
