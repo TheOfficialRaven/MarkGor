@@ -1,4 +1,4 @@
-// toggle icon navbar
+///////////////////////////////////////// toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
@@ -7,11 +7,12 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 };
 
-// toggle slider
+///////////////////////////////////////////// toggle slider
 
 const lampToggle = document.getElementById('lamp-toggle');
 const body = document.body;
 const homeImg = document.querySelector('.home-img img');
+const aboutImg = document.querySelector('.about-img img');
 
 // Ensure the initial state matches the theme
 if (body.getAttribute('data-theme') === 'dark') {
@@ -21,10 +22,19 @@ if (body.getAttribute('data-theme') === 'dark') {
   homeImg.src = 'light.png';
 }
 
+if (body.getAttribute('data-theme') === 'dark') {
+    lampToggle.classList.add('active');
+    aboutImg.src = 'dark.png';
+  } else {
+    aboutImg.src = 'light.png';
+  }
+
 lampToggle.addEventListener('click', () => {
   const isDarkMode = body.getAttribute('data-theme') === 'dark';
   body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
   lampToggle.classList.toggle('active', !isDarkMode);
+
+  ///////////////////////////////////////////////Home img Animation
 
   // Add fade-out animation
   homeImg.classList.remove('fade-in');
@@ -40,6 +50,30 @@ lampToggle.addEventListener('click', () => {
     homeImg.classList.remove('fade-out');
     homeImg.classList.add('fade-in');
 
+    
+
+    // Update the theme attribute
+    body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
+  }, 200); // Match the duration of the fade-out animation
+
+  ///////////////////////////////////////////////////About img animation
+
+  // Add fade-out animation
+  aboutImg.classList.remove('fade-in');
+  aboutImg.classList.add('fade-out');
+
+  setTimeout(() => {
+    // Switch the image source
+    aboutImg.src = isDarkMode
+      ? 'light.png'
+      : 'dark.png';
+
+    // Add fade-in animation
+    aboutImg.classList.remove('fade-out');
+    aboutImg.classList.add('fade-in');
+
+    
+
     // Update the theme attribute
     body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
   }, 200); // Match the duration of the fade-out animation
@@ -53,7 +87,7 @@ lampToggle.addEventListener('click', () => {
   
 
 
-//Scroll Section
+///////////////////////////////////////////////////Scroll Section
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
@@ -89,14 +123,14 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 }
 
-//animation footer on scroll
+///////////////////////////////////////////////////animation footer on scroll
 let footer = document.querySelector('footer');
 
 window.addEventListener('scroll', function() {
   footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
 });
 
-// Language Change
+//////////////////////////////////////////////////// Language Change
 
 const translations = {
     en: {

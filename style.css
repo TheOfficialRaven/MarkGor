@@ -406,15 +406,15 @@ section {
     opacity: 1;
   }
   
-  .home-img img.fade-out {
+  .home-img img.fade-out{
     opacity: 0;
   }
   
-  .home-img img.fade-in {
+  .home-img img.fade-in{
     opacity: 1;
   }
 
-  .home-img img.hidden {
+  .home-img img.hidden{
     opacity: 0;
     transform: scale(0.9);
   }
@@ -465,7 +465,22 @@ section {
     width: 200px;
     border-radius: 50%;
     border: .2rem solid var(--main-color);
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
 }
+
+.about-img img.fade-out{
+    opacity: 0;
+  }
+  
+  .about-img img.fade-in{
+    opacity: 1;
+  }
+
+  .about-img img.hidden{
+    opacity: 0;
+    transform: scale(0.9);
+  }
 
 .about-img {
     position: relative;
