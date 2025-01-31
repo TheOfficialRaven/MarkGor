@@ -19,28 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
-// Az összes animáció csak a preloader eltűnése után indul el
-function startPageAnimations() {
-    document.querySelectorAll('.animate, .animate2, .scroll').forEach(element => {
-        element.classList.add("start-animation"); // Animáció aktiválása
-    });
 
-    document.querySelectorAll("section").forEach(section => {
-        section.classList.add("show-animate");
-    });
-}
-
-
-// 3. Funkció, ami az összes animációt csak a preloader eltűnése után indítja el
-function startPageAnimations() {
-  document.querySelectorAll('.animate, .animate2, .scroll').forEach(element => {
-      element.classList.add("start-animation"); // Hozzáadja a kezdő animáció osztályát
-  });
-
-  document.querySelectorAll("section").forEach(section => {
-      section.classList.add("show-animate");
-  });
-}
 
 ///////////////////////////////////////// toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
@@ -133,7 +112,7 @@ let navLinks = document.querySelectorAll('header nav a');
 window.onscroll = () => {
     sections.forEach(sec => {
         let top = window.scrollY;
-        let offset = sec.offsetTop -400;
+        let offset = sec.offsetTop - 400;
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
         
