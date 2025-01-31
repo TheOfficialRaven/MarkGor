@@ -32,6 +32,7 @@
 html {
     font-size: 62.5%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -39,6 +40,55 @@ body {
     color: var(--text-color);
 
 }
+
+/****************************************** Pre-Loader *********************************/
+
+/* 🔹 Pre-loader */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* 🔹 Loading felirat */
+.loading-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInOut 2s infinite ease-in-out;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 🔹 Loader animáció */
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--main-color);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* 🔹 Ha az oldal betöltött, a preloader elegánsan eltűnik */
+.fade-out {
+    opacity: 0;
+    transform: scale(0.0); /* Finoman összemegy */
+    pointer-events: none;
+    visibility: hidden; /* Elrejtés, hogy ne blokkolja az elemeket */
+}
+
 
  /************************* Slider Toggle *************************/
  .toggle-container {
@@ -49,6 +99,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 100;
+    transition: .3s;
   }
 
   .toggle-lamp {
@@ -88,27 +140,26 @@ body {
     color: var(--text-color);
   }
 
-  /********************* Language Selector Beépíthető ***************/
- /** 
   .language-selector {
     display: flex;
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 0px;
-    right: 10px;
-    width: 15%;
-    background: #37474f;
+    top: 20px; 
+    left: 30%;
+    width: 100px;
+    background: var(--bg-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: .3s;
   }
 
   .language-selector button {
     border: none;
     background: none;
-    color: #e0f7fa;
+    color: var(--text-color);
     font-size: 1rem;
     cursor: pointer;
     padding: 0.3rem 0.6rem;
@@ -117,15 +168,15 @@ body {
   }
 
   .language-selector button.active {
-    background-color: #26c6da;
+    background-color: var(--main-color);
     color: #2c2c2c;
   }
 
   .language-selector button:hover {
-    background-color: #e0f7fa;
+    background-color: var(--main-color);
     color: #2c2c2c;
   }
-    **/
+
 
 /************************* Header **********************/
 
@@ -202,7 +253,7 @@ section {
 }
 
 .home-content {
-    max-width: 60rem;
+    max-width: 65rem;
     z-index: 99;
 }
 
@@ -288,7 +339,7 @@ section {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 34.5rem;
+    width: 38rem;
     height: 5rem;
 }
 
@@ -297,7 +348,7 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 15rem;
+    width: 17rem;
     height: 100%;
     background: var(--main-color);
     border: .2rem solid var(--main-color);
@@ -401,7 +452,7 @@ section {
     max-width: 400px;
     border-radius: 50%;
     border: .3rem solid var(--main-color);
-    transition: opacity 0.2s ease-in-out;
+    transition: 0.5s ease-in-out;
     opacity: 1;
   }
   
@@ -586,7 +637,7 @@ span {
 
 .btn-box.btns {
     display: inline-block;
-    width: 15rem;
+    width: 17rem;
 }
 
 .btn-box.btns a::before {
@@ -688,7 +739,7 @@ span {
 .education-content .content a {
     font-size: 2rem;
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     transition: .3s ease-in-out;
 }
 
@@ -702,6 +753,7 @@ span {
 }
 
 /*********************************** Skills ******************************/
+
 
 
 .skills {
@@ -979,8 +1031,8 @@ span {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
+    width: 102%;
+    height: 102%;
     background: var(--second-bg-color);
     z-index: 98;
 }
@@ -992,7 +1044,9 @@ span {
 .logo .animate,
 .navbar .animate,
 #menu-icon .animate,
-.home.show-animate .animate {
+.home.show-animate .animate,
+.language-selector .animate,
+.toggle-container .animate {
     animation: showRight 1s ease forwards;
     animation-delay: calc(.3s * var(--i));
 }
@@ -1098,6 +1152,17 @@ span {
 
     .toggle-container {
         right:10rem;
+    }
+
+    .language-selector {
+        top: 15px;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+    }
+    
+    .language-selector button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
     }
 
     #menu-icon {
@@ -1208,7 +1273,21 @@ span {
 
 }
 
-@media (max-width: 462px) {
+@media (max-width: 480px) {
+
+    .language-selector {
+        top: 10px;
+        padding: 0.4rem 0.6rem;
+        border-radius: 12px;
+        gap: 0.3rem; /* Kisebb távolság a gombok között */
+    }
+
+    .language-selector button {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+        min-width: 30px; /* Biztosítja, hogy a gombok ne törjenek új sorba */
+    }
+
     .home {
         justify-content: center;
     }
@@ -1274,7 +1353,18 @@ span {
 }
 
 @keyframes showRight {
-    100% {
-        width: 0;
-    }
+    0% { width: 100%; }
+    100% { width: 0; }
+}
+
+/* 🔹 Loading animáció */
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* 🔹 Pörgő loader */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -1,3 +1,47 @@
+////////////////////////////////////////////// Pre-Loader
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        let preloader = document.getElementById("preloader");
+        document.body.classList.add("loaded");
+
+        if (preloader) {
+            preloader.classList.add("fade-out"); // Fade-out animáció
+            preloader.addEventListener("animationend", function () {
+                preloader.style.display = "none"; // Csak az animáció vége után tűnik el
+                startPageAnimations(); // Az oldal animációi ekkor indulnak
+            });
+        } else {
+            startPageAnimations();
+        }
+    }, 500); // 3 másodperc elteltével kezd el eltűnni
+
+    
+});
+
+// Az összes animáció csak a preloader eltűnése után indul el
+function startPageAnimations() {
+    document.querySelectorAll('.animate, .animate2, .scroll').forEach(element => {
+        element.classList.add("start-animation"); // Animáció aktiválása
+    });
+
+    document.querySelectorAll("section").forEach(section => {
+        section.classList.add("show-animate");
+    });
+}
+
+
+// 3. Funkció, ami az összes animációt csak a preloader eltűnése után indítja el
+function startPageAnimations() {
+  document.querySelectorAll('.animate, .animate2, .scroll').forEach(element => {
+      element.classList.add("start-animation"); // Hozzáadja a kezdő animáció osztályát
+  });
+
+  document.querySelectorAll("section").forEach(section => {
+      section.classList.add("show-animate");
+  });
+}
+
 ///////////////////////////////////////// toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -54,7 +98,9 @@ lampToggle.addEventListener('click', () => {
 
     // Update the theme attribute
     body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
-  }, 200); // Match the duration of the fade-out animation
+  }, 300); // Match the duration of the fade-out animation
+
+  
 
   ///////////////////////////////////////////////////About img animation
 
@@ -80,13 +126,6 @@ lampToggle.addEventListener('click', () => {
 });
 
 
-
-  
-
-
-  
-
-
 ///////////////////////////////////////////////////Scroll Section
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
@@ -94,7 +133,7 @@ let navLinks = document.querySelectorAll('header nav a');
 window.onscroll = () => {
     sections.forEach(sec => {
         let top = window.scrollY;
-        let offset = sec.offsetTop - 100;
+        let offset = sec.offsetTop -400;
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
         
@@ -132,42 +171,19 @@ window.addEventListener('scroll', function() {
 
 //////////////////////////////////////////////////// Language Change
 
-const translations = {
-    en: {
-      'about': 'About',
-      'journey': 'Journey',
-      'skills': 'Skills',
-      'contact': 'Contact',
-      'Hi': 'Hi, i am',
-      'name': 'Mark Gor',
-      
-    },
-    hu: {
-      'about': 'Rólam',
-      'journey': 'Utazásom',
-      'skills': 'Tudásom',
-      'contact': 'Kontakt',
-      'Hi': 'Szia, a nevem',
-      'name': 'Gór Márk',
-    },
-    de: {
-      'about': 'Über',
-      'journey': 'Reise',
-      'skills': 'Fähigkeiten',
-      'contact': 'Kontakt',
-    }
-  };
-
   function changeLanguage(lang) {
-    document.querySelectorAll('.language-selector button').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    document.getElementById(`btn-${lang}`).classList.add('active');
+    let url = window.location.href;
+    let baseUrl = url.substring(0, url.lastIndexOf('/') + 1); // Alap URL meghatározása
+    
+    if (lang === 'hu') {
+        window.location.href = baseUrl + 'hu-index.html';
+    } else if (lang === 'de') {
+        window.location.href = baseUrl + 'de-index.html';
+    } else {
+        window.location.href = baseUrl + 'index.html'; // Angol az alapértelmezett
+    }
+}
 
-    Object.keys(translations[lang]).forEach(id => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.textContent = translations[lang][id];
-      }
-    });
-  }
+
+  
+  
